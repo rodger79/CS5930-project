@@ -11,3 +11,12 @@ grep '[0-9]\{3\}-[0-9]\{2\}-[0-9]\{4\}' user-ct-test-collection-10.txt >> ~/scho
 
 Userid:
 grep 'ID' user-ct-test-collection-10.txt >> ~/school/CS5930/project/source/userID.txt
+
+Credit card numbers
+grep "^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})$" user-ct-test-collection-01.txt >> ~/school/CS5930/project/source/CC.txt
+
+Birthday
+grep 'birthday' user-ct-test-collection-01.txt >> ~/school/CS5930/project/source/birthday.txt
+
+Macabre
+grep 'hide body' user-ct-test-collection-01.txt >> ~/school/CS5930/project/source/macabre.txt
