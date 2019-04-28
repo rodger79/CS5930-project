@@ -20,3 +20,4 @@ grep 'birthday' user-ct-test-collection-01.txt >> ~/school/CS5930/project/source
 
 Macabre
 grep 'hide body' user-ct-test-collection-01.txt >> ~/school/CS5930/project/source/macabre.txt
+grep 'how to kill' user-ct-test-collection-07.txt >> ~/school/CS5930/project/source/murder.txt
