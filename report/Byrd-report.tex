@@ -22,10 +22,11 @@
 \maketitle
 
 \section{Abstract}
-In 2006 AOL released the search data for 20 Million queries for 650,000 unique users. What kind of privacy impacts result from the correlation of search data.
-\section{Introduction}
-Introduction: You need to (at a high level) answer the following questions, in no particular order - What do you want to do in this project? Why is this meaningful? 
 
+\section{Introduction}
+Introduction: You need to (at a high level) answer the following questions, in no particular order - What do you want to do in this project? Why is this meaningful? \\
+
+In 2006 AOL released the search data for 20 Million queries for 650,000 unique users for an average of 30 searches per user. It is the only release of a search log to date. What kind of privacy impacts can result from the release of this specific data, and what are the impacts of search engines storing massive databases of queries from their users.
 \section{Design}
 To achieve what you want to do (as in introduction), you took steps xyz to accomplish this. For example, if I designed a tool, what are the different components of it; if I analyzed a dataset, what steps I took to process and analyze it.\\
 First I had to download the data \cite{aol}. It consists of ten text files each with a portion of the search queries. Because the flat files are unwieldy, I planned to move the data to an SQLite database so I could query the data more easily. I ran into problems right away as this data is not well formatted for importing.  It doesn’t have a consistent delimiter between fields, it sometimes has spaces and sometimes has tabs, and some fields are just missing. I created a c++ program to parse the search data and insert it into the database, but it is not complete as it would have taken too much time to format and parse all the data. Because of the problems with the data mentioned previously, I decided to leave them as flat files and run text queries using grep and shell scripting. I thought it would be interesting to look for PII, location, email addresses, or other interesting key words, and see what data could be correlated. The commands I ran are in script.sh file in the github repository\cite{git}.
@@ -33,12 +34,11 @@ First I had to download the data \cite{aol}. It consists of ten text files each 
 \section{Evaluation}
 Depending on your design, this section could be optional. For example, if I designed a tool, I want to show in this section how effective my tool is; if I analyzed a dataset, according to my analysis, what interesting results could I get?\\
 
-In evaluating the data I decided to look for common PII related data. There are some previously published examples. One user, 4417749 was personally identified based on her search history due to the detailed nature of her search history\cite{citation neede}. There was a documentary created called “I Love Alaska” that chronicles the search history of user 711391\cite{imdb}.
+In evaluating the data I decided to look for common PII related data. There are some previously published examples. One user, 4417749 was personally identified based on her search history due to the detailed nature of her search history\cite{nyt}. There was a documentary created called “I Love Alaska” that chronicles the search history of user 711391\cite{imdb}.
 \subsection{Email}
 First I searched for email addresses. This resulted in mostly false positives. The way the data is formated each line contains the search and whatever link was followed from the resulting search. The email addresses showing up in the data were mostly mailto links in the format: \path{http://mailto:email@address.com}.
 \subsection{Social Security Numbers}
-There were a surprising number of social security numbers in the data. I only searched in the format NNN-NN-NNNN, Initially I had a regular expression formatted to accept dashes or no dashes, but there were too many nine-digit false positives in the results.
-Looking more closely at some of the search history for some of the results contain SSNs revealed even more data. User 51XXX34 searched for  specific full names addresses and SSNs. If it wasn’t their own username they inadvertently caused the release of the person they were searching for. User 40XXX51 looked up SSNs as well as medical conditions, medications and what appear to be local businesses.
+There were a surprising number of social security numbers in the data. I only searched in the format NNN-NN-NNNN, Initially I had a regular expression formatted to accept dashes or no dashes, but there were too many nine-digit false positives in the results. Looking more closely at some of the search history for some of the results contain SSNs revealed even more data. User 51XXX34 searched for  specific full names, addresses, and SSNs. If it wasn’t their own username they inadvertently caused the release of the person they were searching for. User 40XXX51 looked up SSNs as well as medical conditions, medications and what appear to be local businesses.
 \subsection{Credit Card Numbers}
 I didn’t find any credit card numbers matching my regex. I found this somewhat surprising
 \subsection{Birthday}
@@ -46,35 +46,38 @@ It was difficult searching for birthdays in the data. There is a date field on e
 \subsection{Macabre}
 Searching for "how to kill" returned ~700 results. Fortunately mostly were relatred to bugs and termites, but there were some troubling searches. It seems many people want to kill their pet dogs, cats, and hamsters. User 17XXXX39 is a somewhat famous example\cite{murder} with a very disturbing search history that was identified when the data was released. From his search history it looked like he was planning to kill his wife. I found more examples of people looking to kill their brothers, sisters
 \section{Discussion}
-This is optional. Are there anything you haven't covered in design and evaluation? Place those things here.
+This is optional. Are there anything you haven't covered in design and evaluation? Place those things here.\\
+
+The scope of this problem is huge. There are serious privacy implications related to searches and search history. Search engines store queries, clicks, IP-addresses, and other information about the users. As of December 2012, google had 1.17 billion users\cite{google1}, recieves 63,000 searches per second and has a market value of \$739 billion.\cite{google}.
+
+When looking at what a user can do to protect their privacy there are a few options. A single proxy provides some protection but requires users to trust a third party. There are other solutions such as TrackMeNot and Tor. It was shown that user queries can be identified 48.88\% of the time when using TrackMeNot and 25.95\% of the timme with Tor by performing testing on the AOL search logs\cite{TMN-Tor}. The search engine \path{duckduckgo.com} doesn't maintain logs of users. They sell advertisements based on each search individually. They claim to not perform any tracking or advertisement targeting and don't sell users information becasue they don't keep any.
 
 \subsection{What are engines doing with search history}
 
-\subsection{Previous research on AOL release}
+\subsection{Using }
 
 \section{Conclusions}
-Overall, what you've learned from this project; what interesting results you've got; (optionally) what impacts have it made?
-Very personal view into peoples lives
+Overall, what you've learned from this project; what interesting results you've got; (optionally) what impacts have it made?\\
+
+Very personal view into peoples lives. Implicit and explicit data are contained in search engine logs. Whether people are explicitly searching for social security numbers or medical conditions or information about them can be aggregated and compared with other publicly released data to implicitly identify them. Search historys contain data that should have privacy protections. 
 
 \begin{thebibliography}{9}
 \bibitem{aol} 
 AOL Search Data,
 \\\path{https://archive.org/download/AOL_search_data_leak_2006.}
 
+\bibitem{nyt} 
+M. Barbaro and T. Zeller,A Face is Exposed for AOL Searcher No. 4417749, New York Times,
+\\\path{ http://www.nytimes.com/006/08/09/technology/09aol.html?ex=1312776000en=f6f61949c6da4d38ei=5090}
+
 \bibitem{git} 
-Project github,
+Project github,A Face is Exposed for AOL Searcher No. 4417749, New York Times
 \\\path{https://github.com/rodger79/CS5930-project}
 
-\bibitem{latexcompanion} 
-Michel Goossens, Frank Mittelbach, and Alexander Samarin. 
-\textit{The \LaTeX\ Companion}. 
-Addison-Wesley, Reading, Massachusetts, 1993.
- 
-\bibitem{einstein} 
-Albert Einstein. 
-\textit{Zur Elektrodynamik bewegter K{\"o}rper}. (German) 
-[\textit{On the electrodynamics of moving bodies}]. 
-Annalen der Physik, 322(10):891–921, 1905.
+\bibitem{TMN-Tor} 
+Sai Teja Peddinti, and Nitesh Saxena. 
+\textit{Web search query privacy: Evaluating query obfuscation and anonymizing networks}. 
+Journal of Computer Security 22, 2014.
  
 \bibitem{murder} 
 Frind, Markus: AOL Search Data Shows Users Planning to commit Murder,
@@ -84,6 +87,13 @@ Frind, Markus: AOL Search Data Shows Users Planning to commit Murder,
 I love Alaska,
 \\\path{https://www.imdb.com/title/tt1455044/}
 
+\bibitem{google} 
+63 Fascinating Google Search Statistics,
+\\\path{https://seotribunal.com/blog/google-stats-and-facts/}
+
+\bibitem{google1} 
+1.17 Billion People Use Google Search,
+\\\path{https://www.statista.com/chart/899/unique-users-of-search-engines-in-december-2012/}
 
 \end{thebibliography}
 \end{document}
