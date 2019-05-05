@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.4.21)  28 APR 2019 09:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.4.21)  5 MAY 2019 06:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -559,22 +559,28 @@ Missing character: There is no ™ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
- [2] [3] (./Byrd-report.aux) ) 
+ [2]
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¶ in font cmr10!
+Missing character: There is no â in font cmti10!
+Missing character: There is no € in font cmti10!
+Missing character: There is no ” in font cmti10!
+ [3] (./Byrd-report.aux) ) 
 Here is how much of TeX's memory you used:
- 12980 strings out of 492982
- 264519 string characters out of 6134896
- 309704 words of memory out of 5000000
- 16274 multiletter control sequences out of 15000+600000
+ 12981 strings out of 492982
+ 264531 string characters out of 6134896
+ 309706 words of memory out of 5000000
+ 16275 multiletter control sequences out of 15000+600000
  16928 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,6n,66p,1040b,258s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Byrd-report.pdf (3 pages, 96613 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
+2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on Byrd-report.pdf (3 pages, 99690 bytes).
 PDF statistics:
  41 PDF objects out of 1000 (max. 8388607)
  29 compressed objects within 1 object stream
