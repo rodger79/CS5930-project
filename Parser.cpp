@@ -23,7 +23,6 @@ static int callback(void *NotUsed, int argc, char **argv, char **azColName){
 }
 
 int main(int argc, char **argv) {
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 	const char *dbname = "aol_database";
 	const char *createTable = "CREATE TABLE searches (query_id INTEGER PRIMARY KEY, AnonID TEXT, Query TEXT, QueryTime TEXT, ItemRank INTEGER, ClickURL TEXT);";
 
